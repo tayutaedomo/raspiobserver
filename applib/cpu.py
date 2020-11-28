@@ -1,5 +1,6 @@
 import subprocess
 
+
 def get_temp():
     return float(get_temp_raw().replace("'", '').replace('C', ''))
 
