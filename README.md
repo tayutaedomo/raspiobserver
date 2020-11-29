@@ -1,2 +1,2 @@
 # raspiobserver
-Rasperry Pi App
+RaspBerry Pi App
