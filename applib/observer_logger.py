@@ -29,7 +29,6 @@ class DataLogger:
 
     def log(self, data):
         csv_line = self.convert_data_to_csv(data)
-        print(csv_line) # debug
         self.logger.info(csv_line)
 
     def convert_data_to_csv(self, data):
