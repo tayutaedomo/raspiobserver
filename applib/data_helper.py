@@ -5,6 +5,8 @@ ROOT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 ROOT_PATH = os.path.abspath(ROOT_PATH)
 sys.path.append(os.path.abspath(ROOT_PATH))
 
+from datetime import datetime
+
 import applib.sensehat
 import applib.cpu
 import applib.memory
@@ -14,6 +16,8 @@ import applib.disk
 def get_all():
     data = {}
 
+    data.update(get_hostname())
+    data.update(get_date())
     data.update(get_senshat())
     data.update(get_cpu())
     data.update(get_memory())
@@ -21,6 +25,16 @@ def get_all():
 
     return data
 
+def get_hostname():
+    return {'hostname': os.uname()[1]}
+
+def get_date():
+    now = datetime.now()
+
+    return {
+        'created_date': str(now.date()),
+        'created_at': now.isoformat(),
+    }
 
 def get_senshat():
     compass = applib.sensehat.get_compass_raw()
