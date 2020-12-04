@@ -17,8 +17,7 @@ class DataLogger:
         handler = TimedRotatingFileHandler(
             self.log_path,
             encoding='utf-8',
-            when='D',
-            interval=1,
+            when='midnight',
             backupCount=7,
         )
         handler.setLevel(INFO)
