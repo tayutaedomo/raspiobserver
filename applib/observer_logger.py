@@ -36,9 +36,9 @@ class TemperatureMetricsLogger:
             f"\"{data['hostname']}\"",
             f"\"{data['created_date']}\"",
             f"\"{data['created_at']}\"",
-            f"\"{data['temperature']}\"",
-            f"\"{data['humidity']}\"",
-            f"\"{data['airpressure']}\"",
+            f"\"{floor(data['temperature'])}\"",
+            f"\"{floor(data['humidity'])}\"",
+            f"\"{floor(data['airpressure'])}\"",
             f"\"{data['cpu_temp']}\"",
         ])
 
@@ -82,9 +82,9 @@ class HardwareMetricsLogger:
         ])
 
 
-#def to_mb(x, n=2):
-#    x = x / 1024 / 1024
-#    return math.floor(x * 10 ** n) / (10 ** n)
+def floor(x, n=1):
+    return math.floor(x * 10 ** n) / (10 ** n)
+
 def to_mb(x):
     return math.floor(x / 1024 / 1024)
 
@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
     data = applib.data_helper.get_all()
 
-    #logger = TemperatureMetricsLogger()
-    logger = HardwareMetricsLogger()
+    logger = TemperatureMetricsLogger()
+    #logger = HardwareMetricsLogger()
     logger.log(data)
 
