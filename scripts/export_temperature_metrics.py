@@ -7,12 +7,12 @@ ROOT_PATH = os.path.abspath(ROOT_PATH)
 sys.path.append(os.path.abspath(ROOT_PATH))
 
 from applib import data_helper
-from applib.observer_logger import DataLogger
+from applib.observer_logger import TemperatureMetricsLogger
 
 
 if __name__ == '__main__':
     data = data_helper.get_all()
 
-    logger = DataLogger()
+    logger = TemperatureMetricsLogger()
     logger.log(data)
 

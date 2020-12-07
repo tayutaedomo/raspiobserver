@@ -10,9 +10,9 @@ from logging import getLogger, INFO
 from logging.handlers import TimedRotatingFileHandler
 
 
-class DataLogger:
+class TemperatureMetricsLogger:
     def __init__(self):
-        self.log_name = 'raspiobserver_data.csv'
+        self.log_name = 'raspiobserver_temp_metrics.csv'
         self.log_path = os.path.join('/var/tmp/', self.log_name)
 
         handler = TimedRotatingFileHandler(
@@ -97,7 +97,7 @@ if __name__ == '__main__':
 
     data = applib.data_helper.get_all()
 
-    #logger = DataLogger()
+    #logger = TemperatureMetricsLogger()
     logger = HardwareMetricsLogger()
     logger.log(data)
 
