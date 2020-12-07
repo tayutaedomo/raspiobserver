@@ -40,8 +40,6 @@ class TemperatureMetricsLogger:
             f"\"{data['humidity']}\"",
             f"\"{data['airpressure']}\"",
             f"\"{data['cpu_temp']}\"",
-            f"\"{data['cpu_clock']}\"",
-            f"\"{data['cpu_volts']}\"",
         ])
 
 
