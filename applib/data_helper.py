@@ -37,24 +37,40 @@ def get_date():
     }
 
 def get_senshat():
-    compass = applib.sensehat.get_compass_raw()
-    gyroscope = applib.sensehat.get_gyroscope_raw()
-    accelero = applib.sensehat.get_accelerometer_raw()
-    
-    return {
-        'temperature': applib.sensehat.get_temperature(),
-        'humidity': applib.sensehat.get_humidity(),
-        'airpressure': applib.sensehat.get_pressure(),
-        'compass_x': compass['x'],
-        'compass_y': compass['y'],
-        'compass_z': compass['z'],
-        'gyroscope_x': gyroscope['x'],
-        'gyroscope_y': gyroscope['y'],
-        'gyroscope_z': gyroscope['z'],
-        'accelero_x': accelero['x'],
-        'accelero_y': accelero['y'],
-        'accelero_z': accelero['z'],
-    }
+    try:
+        compass = applib.sensehat.get_compass_raw()
+        gyroscope = applib.sensehat.get_gyroscope_raw()
+        accelero = applib.sensehat.get_accelerometer_raw()
+
+        return {
+            'temperature': applib.sensehat.get_temperature(),
+            'humidity': applib.sensehat.get_humidity(),
+            'airpressure': applib.sensehat.get_pressure(),
+            'compass_x': compass['x'],
+            'compass_y': compass['y'],
+            'compass_z': compass['z'],
+            'gyroscope_x': gyroscope['x'],
+            'gyroscope_y': gyroscope['y'],
+            'gyroscope_z': gyroscope['z'],
+            'accelero_x': accelero['x'],
+            'accelero_y': accelero['y'],
+            'accelero_z': accelero['z'],
+        }
+    except:
+        return {
+            'temperature': None,
+            'humidity': None,
+            'airpressure': None,
+            'compass_x': None,
+            'compass_y': None,
+            'compass_z': None,
+            'gyroscope_x': None,
+            'gyroscope_y': None,
+            'gyroscope_z': None,
+            'accelero_x': None,
+            'accelero_y': None,
+            'accelero_z': None,
+        }
 
 
 def get_cpu():
