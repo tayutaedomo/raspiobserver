@@ -25,5 +25,6 @@ RASPIOBSERVER_GCS_CREDENTIALS=<Credentials file name>
 RASPIOBSERVER_GCS_PROJECT=<Project ID>
 RASPIOBSERVER_GCS_BUCKET=<Bucket name>
 15 0 * * * $RASPIOBSERVER_ROOT/scripts/upload_temperature_metrics.py > /dev/null 2>&1
+20 0 * * * $RASPIOBSERVER_ROOT/scripts/upload_hardware_metrics.py > /dev/null 2>&1
 ```
 
